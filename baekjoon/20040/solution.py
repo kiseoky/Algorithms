@@ -1,7 +1,7 @@
 // [문제 링크]: https://www.acmicpc.net/problem/20040
 
 import sys
-​
+sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 ​
 n, m = map(int, input().split())
@@ -21,7 +21,7 @@ for i in range(m):
     if x == y:
         answer = i+1
         break
-    parent[max(x, y)] = min(x, y)
+    parent[x] = y
 ​
 print(answer)
 ​
