@@ -8,7 +8,7 @@ class Solution {
         int[] answer = new int[score.length];
 
         for(int i=0;i<score.length;i++){
-            System.out.println(Arrays.stream(score).boxed());
+            System.out.println(Arrays.stream(score).boxed().toString());
             Integer[] sub = Arrays.copyOf(Arrays.stream(score).boxed().toArray(Integer[]::new), i + 1);
             Arrays.sort(sub, Collections.reverseOrder());
             answer[i] = sub[Math.min(k-1, sub.length-1)];
