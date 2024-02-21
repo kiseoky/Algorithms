@@ -5,6 +5,8 @@ def solution(n):
     able = n - 10
     if able < 0:
         return 0
+    if able == 0:
+        return 0
 
     dp = [[0] * (able + 1) for _ in range(10)]
 
@@ -22,7 +24,6 @@ def solution(n):
             else:
                 dp[j][i] = (dp[j - 1][i - 1] + dp[j + 1][i - 1]) % int(10e9)
 
-    print(*dp, sep="\n")
     ans = 0
     for i in range(able + 1):
         l, r = i, able - i
@@ -31,9 +32,10 @@ def solution(n):
 
     return ans
 
-
-print(solution(n))
-# summed = 0
-# for i in range(1, 41):
-# summed += solution(i)
-# print(summed)
+# 10123456789
+# 987656543210
+# print(solution(n))
+summed = 0
+for i in range(1, 41):
+    summed += solution(i)
+print(summed)
