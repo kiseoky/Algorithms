@@ -23,17 +23,16 @@ def eratos(num):
     return [i for i, flag in enumerate(prime_flags) if flag]
 
 
-primes = eratos(n)
-acc = [0] + primes[:]
+primes = [0] + eratos(n)
 
-for i in range(1, len(acc)):
-    acc[i] += acc[i - 1]
+for i in range(1, len(primes)):
+    primes[i] += primes[i - 1]
 
 cnt = 0
-acc_len = len(acc)
-for a in acc:
-    bs = bisect_left(acc, a + n)
-    if bs >= acc_len or acc[bs] != a + n:
+acc_len = len(primes)
+for a in primes:
+    bs = bisect_left(primes, a + n)
+    if bs >= acc_len or primes[bs] != a + n:
         continue
     cnt += 1
 
